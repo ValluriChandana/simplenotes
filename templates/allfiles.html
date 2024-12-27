@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View All files</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1423592707957-3b212afa6733?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHdyaXRpbmclMjBhJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D');
+            background-repeat: no-repeat;
+            background-size: 100% 100%; 
+            background-attachment: fixed;
+            
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            width: 80%;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+    
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #384051;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .button {
+            padding: 6px 12px;
+            color: white;
+            background-color:  #384051;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #0c172b;
+        }
+        .button.download {
+            background-color: #384051;
+        }
+        .button.download:hover {
+            background-color: #0c172b;
+        }
+        .button.delete {
+            background-color: #dc3545;
+        }
+        .button.delete:hover {
+            background-color: #c82333;
+        }
+        .columns{
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>View All Files</h2>
+        <table>
+            <tr>
+                <th>Fileid</th>
+                <th>Filename</th>
+                <th>created_at</th>
+                <th>Actions</th>
+            </tr>
+            <!-- Example rows -->
+             {% for i in filesdata %}
+           
+            <tr>
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+
+                <td class="columns"><a href="{{url_for('viewfile',fid=i[0])}}" class="button">View</a>
+                    <a href="{{url_for('downloadfile',fid=i[0])}}" class="button update">Download</a>
+                <a href="{{url_for('deletefile',fid=i[0])}}" class="button delete">Delete</a></td>
+            </tr>
+            
+            {% endfor %}
+            
+            <!-- Add more rows as needed -->
+        </table>
+    </div>
+    <div>
+        <button>Back</button>
+    </div>
+    
+        
+    
+</body>
+</html>

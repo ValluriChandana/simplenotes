@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Note</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        background-image: url('https://images.unsplash.com/photo-1423592707957-3b212afa6733?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHdyaXRpbmclMjBhJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D');
+        background-repeat: no-repeat;
+        background-size: 100% 100%; 
+        background-attachment: fixed;
+    
+        
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #faf5f5;
+        border-radius: 8px;
+        
+    }
+
+    header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .add-note-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+        border-color: #25282b;
+        outline: none;
+    }
+
+    .submit-button {
+        background: #24334f;
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .submit-button:hover {
+        background: #384051;
+    }
+</style>
+<body>
+    <div class="container">
+        <header>
+            <h1>Add a New Note</h1>
+        </header>
+        <main>
+            <form class="add-note-form" method="post">
+                <div class="form-group">
+                    <label for="note-title">Title:</label>
+                    <input type="text" id="note-title" placeholder="Enter note title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="note-content">Content:</label>
+                    <textarea id="note-content" rows="5" placeholder="Enter note content" name="content" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Add Note</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
